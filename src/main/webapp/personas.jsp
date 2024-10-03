@@ -4,6 +4,7 @@
     Author     : RICARDO
 --%>
 
+<%@page import="com.sena.webapp.modelo.Personas"%>
 <%@page import="com.sena.webapp.modelo.Deportes"%>
 <%@page import="java.util.List"%>
 <%@page import="com.sena.webapp.service.DataService"%>
@@ -26,12 +27,12 @@
         <%
          DataService dataService = new DataService();
         
-        List<Deportes> lista =dataService.deportesService().findAll();       
+        List<Personas> lista =dataService.personasService().findAll();       
            
          
-         for (Deportes deporte : lista) {
+         for (Personas persona : lista) {
           %>
-           <li class="list-group-item"><%=deporte.getNombreDeporte().toUpperCase() %></li>
+           <li class="list-group-item"><%=persona.getNombre().toUpperCase() %></li>
           <%
                  }
            %>
@@ -47,9 +48,9 @@
                 <ul class="dropdown-menu">
            <%         
                   
-          for (Deportes deporte : lista) {
+          for (Personas persona : lista) {
           %>
-           <li><a class="dropdown-item" href="index.html"><%=deporte.getNombreDeporte().toUpperCase() %></a></li>
+           <li><a class="dropdown-item" href="index.html"><%=persona.getNombre().toUpperCase() %></a></li>
           <%
            }
            %>  
@@ -64,7 +65,8 @@
            
            
         </row>
-           
+
+        <a href="index.html" >Regresar</a>
         </div>  
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
     </body>
